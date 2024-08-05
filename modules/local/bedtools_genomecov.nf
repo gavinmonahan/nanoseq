@@ -1,11 +1,11 @@
 process BEDTOOLS_GENOMECOV {
     tag "$meta.id"
-    label 'process_medium'
+    label 'process_high'
 
-    conda "bioconda::bedtools=2.29.2"
+    conda "bioconda::bedtools=2.31.1"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/bedtools:2.29.2--hc088bd4_0' :
-        'quay.io/biocontainers/bedtools:2.29.2--hc088bd4_0' }"
+        'https://depot.galaxyproject.org/singularity/bedtools:2.31.1--hf5e1c6e_2' :
+        'quay.io/biocontainers/bedtools:2.31.1--hf5e1c6e_2' }"
 
     input:
     tuple val(meta), path(sizes), val(is_transcripts), path(bam), path(bai)
