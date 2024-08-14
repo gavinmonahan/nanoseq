@@ -15,6 +15,14 @@
 
 ## Under development!
 ## This fork of nanoseq adds in an option to output sniffles snf files per sample and merge
+## Todo
+[x] Add in sniffles merge
+[x] Fix resource requirments and config
+[x] Fix merge output channel
+[x] Test using nf test cases
+[] Add logic for n = 1 
+[] Test on n > 1 real cases
+[] Test on slurm
 
 ## Introduction
 

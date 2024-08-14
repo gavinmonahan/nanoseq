@@ -175,6 +175,11 @@
                     "description": "Specifies the variant caller that will be used to call structural variants (available are: sniffles and cutesv). Structural variant calling is only available if '--call_variants' is set and the protocol is set to `DNA`.",
                     "fa_icon": "fas fa-bezier-curve"
                 },
+                "merge_sniffles": {
+                    "type": "boolean",
+                    "description": "Specifies if sniffles variant calls will be merged.",
+                    "fa_icon": "fas fa-file-alt"
+		},
                 "split_mnps": {
                     "type": "boolean",
                     "description": "Specifies if MNPs will be split into SNPs when using medaka.",
