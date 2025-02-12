@@ -37,6 +37,7 @@ process PEPPER_MARGIN_DEEPVARIANT {
         -o "." \\
         -p "${prefix}" \\
         -t ${task.cpus} \\
+        --gvcf \\
         $gpu \\
         $args
 
