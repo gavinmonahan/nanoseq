@@ -1,5 +1,5 @@
-process SNIFFLES {
-    tag "$meta.id"
+process SNIFFLES_MERGE {
+    tag "sniffles_merge"
     label 'process_high'
 
     conda "bioconda::sniffles=2.4"
@@ -8,23 +8,23 @@ process SNIFFLES {
         'quay.io/biocontainers/sniffles:2.4--pyhdfd78af_0' }"
 
     input:
-    tuple val(meta), path(sizes), val(is_transcripts), path(input), path(index)
+    tuple val(meta), path(snf)
 
 
     output:
-    tuple val(meta), path("*_sniffles.vcf"), emit: sv_calls
-    tuple val(meta), path("*_sniffles.snf"), emit: snf_calls
-    path "versions.yml"                    , emit: versions
+    path("sniffles_merged.vcf")  , emit: merged_svs
+    path "versions.yml"          , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
+    def input_list = snf.collect{ "--input $it"}.join(' ') 
+    
     """
     sniffles \
-        --input  $input \
-        --vcf ${meta.id}_sniffles.vcf \
-        --snf ${meta.id}_sniffles.snf \
+        $input_list \
+        --vcf sniffles_merged.vcf \
         --threads $task.cpus
 
     cat <<-END_VERSIONS > versions.yml
