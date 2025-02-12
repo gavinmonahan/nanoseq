@@ -14,15 +14,17 @@
 [![Get help on Slack](http://img.shields.io/badge/slack-nf--core%20%23nanoseq-4A154B?labelColor=000000&logo=slack)](https://nfcore.slack.com/channels/nanoseq)[![Follow on Twitter](http://img.shields.io/badge/twitter-%40nf__core-1DA1F2?labelColor=000000&logo=twitter)](https://twitter.com/nf_core)[![Watch on YouTube](http://img.shields.io/badge/youtube-nf--core-FF0000?labelColor=000000&logo=youtube)](https://www.youtube.com/c/nf-core)
 
 ## Under development!
-## This fork of nanoseq adds in an option to output sniffles snf files per sample and merge
+## This fork of nanoseq adds in an option to output sniffles snf and deepvariant gvcfs per sample and merge
 ## Todo
-[x] Add in sniffles merge
-[x] Fix resource requirments and config
-[x] Fix merge output channel
-[x] Test using nf test cases
-[] Add logic for n = 1 
-[] Test on n > 1 real cases
-[] Test on slurm
+1. [x] Add in sniffles merge
+2. [x] Fix resource requirments and config
+3. [x] Fix merge output channel
+4. [x] Test using nf test cases
+5. [x] Add gVCF output
+6. [] Add glnexus merge
+5. [] Add logic for n = 1 
+6. [] Test on n > 1 real cases
+7. [] Test on slurm
 
 ## Introduction
 
