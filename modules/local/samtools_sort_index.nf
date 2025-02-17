@@ -2,10 +2,10 @@ process SAMTOOLS_SORT_INDEX {
     tag "$meta.id"
     label 'process_medium'
 
-    conda "bioconda::samtools=1.14"
+    conda "bioconda::samtools=1.21"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/samtools:1.15.1--h1170115_0' :
-        'quay.io/biocontainers/samtools:1.15.1--h1170115_0' }"
+        'https://depot.galaxyproject.org/singularity/samtools%3A1.19.2--h50ea8bc_1' :
+        'quay.io/biocontainers/samtools:1.21--h96c455f_1' }"
 
     input:
     tuple val(meta), path(bam)
@@ -22,7 +22,7 @@ process SAMTOOLS_SORT_INDEX {
     """
     samtools sort -@ $task.cpus -o ${meta.id}.sorted.bam -T $meta.id $bam
 
-    samtools index ${meta.id}.sorted.bam
+    samtools index -@ $task.cpus ${meta.id}.sorted.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
